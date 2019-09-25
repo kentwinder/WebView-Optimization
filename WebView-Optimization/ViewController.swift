@@ -10,7 +10,7 @@ import WebKit
 
 class ViewController: UIViewController {
     var webView: WKWebView!
-    var popupWebViews: [WKWebView] = []
+    var popupWebView: WKWebView?
     var urlPath: String = "https://facebook-login-demo-71f0c.firebaseapp.com"
     
     open override func viewDidLoad() {
@@ -46,21 +46,18 @@ class ViewController: UIViewController {
 extension ViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         debugPrint("createWebViewWith: ", configuration)
-        let popupWebView = WKWebView(frame: view.bounds, configuration: configuration)
-        popupWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        popupWebView.navigationDelegate = self
-        popupWebView.uiDelegate = self
-        view.addSubview(popupWebView)
-        popupWebViews.append(popupWebView)
-        return popupWebView
+        popupWebView = WKWebView(frame: view.bounds, configuration: configuration)
+        popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        popupWebView!.navigationDelegate = self
+        popupWebView!.uiDelegate = self
+        view.addSubview(popupWebView!)
+        return popupWebView!
     }
     
     func webViewDidClose(_ webView: WKWebView) {
         debugPrint("webViewDidClose")
-        if popupWebViews.contains(webView) {
-            webView.removeFromSuperview()
-            popupWebViews.removeLast()
-        }
+        webView.removeFromSuperview()
+        popupWebView = nil
     }
 }
 
