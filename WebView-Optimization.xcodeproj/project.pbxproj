@@ -95,6 +95,7 @@
 				TargetAttributes = {
 					0F02266620C138E90059864E = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -289,7 +290,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kentwinder.WebView-Optimization";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -308,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kentwinder.WebView-Optimization";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
