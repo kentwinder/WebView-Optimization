@@ -45,7 +45,6 @@ class ViewController: UIViewController {
 
 extension ViewController: WKUIDelegate {
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        debugPrint("createWebViewWith: ", configuration)
         popupWebView = WKWebView(frame: view.bounds, configuration: configuration)
         popupWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         popupWebView!.navigationDelegate = self
@@ -55,7 +54,6 @@ extension ViewController: WKUIDelegate {
     }
     
     func webViewDidClose(_ webView: WKWebView) {
-        debugPrint("webViewDidClose")
         webView.removeFromSuperview()
         popupWebView = nil
     }
